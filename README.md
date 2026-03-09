@@ -46,4 +46,89 @@ The dashboard provides key inventory metrics:
 
 ---
 
-## 🧩 Project Structure
+## Project Structure
+app
+dashboard
+products
+add
+edit
+auth
+components
+layout
+features
+auth
+dashboard
+product
+guards
+lib
+mock
+store
+
+This project follows a **feature-based architecture** for better scalability.
+
+---
+
+## Tech Stack
+
+- Next.js 15 (App Router)
+- TypeScript
+- Tailwind CSS
+- React Hook Form
+- Zustand (State Management)
+
+---
+
+##  Authentication
+
+The app includes a mock authentication system with role-based access control.
+
+Example credentials:
+Manager 
+username: manager
+password: manager123
+Store Keeper
+username: store
+password: store123
+# Installation
+Clone the repository:
+https://github.com/Samir7631/slooze-frontend-challenge.git
+Install dependencies:
+npm install
+Run development server:
+npm run dev
+open in browser:
+http://localhost:3000
+
+---
+
+## Screens
+
+- Login Page
+- Dashboard Analytics
+- Product Listing
+- Add Product
+- Edit Product
+
+---
+
+## Purpose
+
+This project was built as a **frontend engineering challenge** to demonstrate:
+
+- scalable project architecture
+- role-based access control
+- reusable components
+- clean UI structure
+- TypeScript usage in large apps
+
+---
+
+##  Author
+
+Samir Kumar
+
+GitHub  
+https://github.com/Samir7631
+
+---
+
