@@ -4,7 +4,7 @@ A modern inventory management dashboard built using **Next.js (App Router), Type
 This project demonstrates a modular frontend architecture with **role-based authentication, protected routes, and product management workflows**.
 
 The application simulates a small commodity inventory system where different roles have controlled access to features.
-
+URL : https://sloooze-frontend-challenge.vercel.app/auth/login
 ---
 
 Features
