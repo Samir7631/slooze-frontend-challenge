@@ -23,10 +23,10 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="flex h-screen w-64 flex-col border-r border-gray-800 bg-gray-950 text-white">
-      <div className="border-b border-gray-800 px-6 py-5">
+    <aside className="flex h-screen w-64 flex-col border-r border-gray-200 bg-white text-black dark:border-gray-800 dark:bg-gray-950 dark:text-white">
+      <div className="border-b border-gray-200 px-6 py-5 dark:border-gray-800">
         <h2 className="text-xl font-bold">Slooze CMS</h2>
-        <p className="mt-1 text-sm text-gray-400">
+        <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
           {user?.name} ({user?.role})
         </p>
       </div>
@@ -42,8 +42,8 @@ export default function Sidebar() {
                 href={item.href}
                 className={`block rounded-md px-4 py-2 text-sm font-medium transition ${
                   isActive
-                    ? "bg-white text-black"
-                    : "text-gray-300 hover:bg-gray-800 hover:text-white"
+                    ? "bg-black text-white dark:bg-white dark:text-black"
+                    : "text-gray-700 hover:bg-gray-100 hover:text-black dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
                 }`}
               >
                 {item.label}
@@ -53,7 +53,7 @@ export default function Sidebar() {
         </div>
       </nav>
 
-      <div className="border-t border-gray-800 p-4">
+      <div className="border-t border-gray-200 p-4 dark:border-gray-800">
         <button
           onClick={handleLogout}
           className="w-full rounded-md bg-red-500 px-4 py-2 text-sm font-medium text-white hover:bg-red-600"

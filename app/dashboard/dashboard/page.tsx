@@ -37,8 +37,11 @@ export default function DashboardPage() {
 
         <div className="p-6">
           {loading || !stats ? (
-            <div className="rounded-lg border border-gray-800 bg-gray-900 p-6 text-gray-300">
-              Loading dashboard stats...
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+              <div className="h-32 animate-pulse rounded-xl bg-gray-900" />
+              <div className="h-32 animate-pulse rounded-xl bg-gray-900" />
+              <div className="h-32 animate-pulse rounded-xl bg-gray-900" />
+              <div className="h-32 animate-pulse rounded-xl bg-gray-900" />
             </div>
           ) : (
             <>

@@ -8,9 +8,9 @@ export default function DashboardLayout({
 }) {
   return (
     <ProtectedRoute>
-      <div className="flex min-h-screen bg-black">
+      <div className="flex min-h-screen bg-gray-100 text-black dark:bg-black dark:text-white">
         <Sidebar />
-        <main className="flex-1 bg-black">{children}</main>
+        <main className="flex-1 bg-gray-100 dark:bg-black">{children}</main>
       </div>
     </ProtectedRoute>
   );

@@ -1,10 +1,32 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Header from "@/components/layout/header";
 import RoleGuard from "@/guards/role-guard";
 import { ROLES } from "@/lib/constants/roles";
+import { productService } from "@/features/product/service/product.service";
+import ProductTable from "@/features/product/components/product-table";
+import { Product } from "@/features/product/type/product.types";
 
 export default function ProductsPage() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        const data = await productService.getProducts();
+        setProducts(data);
+      } catch (error) {
+        console.error("Failed to load products:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProducts();
+  }, []);
+
   return (
     <RoleGuard allowedRoles={[ROLES.MANAGER, ROLES.STORE_KEEPER]}>
       <div className="min-h-screen bg-black text-white">
@@ -14,12 +36,15 @@ export default function ProductsPage() {
         />
 
         <div className="p-6">
-          <div className="rounded-lg border border-gray-800 bg-gray-900 p-6">
-            <h2 className="text-xl font-semibold">Products Page</h2>
-            <p className="mt-2 text-gray-400">
-              Both Manager and Store Keeper can access this page.
-            </p>
-          </div>
+          {loading ? (
+            <div className="grid gap-4">
+              <div className="h-16 animate-pulse rounded-xl bg-gray-900" />
+              <div className="h-16 animate-pulse rounded-xl bg-gray-900" />
+              <div className="h-16 animate-pulse rounded-xl bg-gray-900" />
+            </div>
+          ) : (
+            <ProductTable products={products} />
+          )}
         </div>
       </div>
     </RoleGuard>

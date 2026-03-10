@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { Product } from "@/features/product/type/product.types";
+import { ROUTES } from "@/lib/constants/routes";
 
 type ProductTableProps = {
   products: Product[];
@@ -18,6 +20,24 @@ const getStatusClasses = (status: Product["status"]) => {
 };
 
 export default function ProductTable({ products }: ProductTableProps) {
+  if (!products.length) {
+    return (
+      <div className="rounded-xl border border-dashed border-gray-700 bg-gray-900 p-10 text-center">
+        <h3 className="text-xl font-semibold text-white">No products found</h3>
+        <p className="mt-2 text-sm text-gray-400">
+          Start by adding a new product to your inventory.
+        </p>
+
+        <Link
+          href={ROUTES.ADD_PRODUCT}
+          className="mt-5 inline-flex rounded-md bg-white px-4 py-2 text-sm font-medium text-black transition hover:bg-gray-200"
+        >
+          Add Product
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div className="overflow-hidden rounded-xl border border-gray-800 bg-gray-900">
       <div className="overflow-x-auto">
